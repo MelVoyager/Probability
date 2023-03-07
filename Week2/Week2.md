@@ -251,3 +251,39 @@ $P_甲(B)+P_乙(A)=0.6<1$，这说明甲乙都自信自身能够赢，可以通�
 ###### 4)尝试$p=0.5, n=2000$
 ![散点图2](3.png)
 ![直方图2](4.png)
+
+代码：
+```
+import numpy as np
+import matplotlib.pyplot as plt
+
+def experiment(n, probablity, ifprint, figname):
+    tot = 0
+    pos = 0
+    freq = []
+    frame = np.linspace(0, n, n)
+    for i in range(n):
+        x = np.random.rand()
+        if(x <= probablity):
+            pos += 1
+        tot += 1
+        freq.append(pos/tot)
+    if(ifprint):
+        plt.scatter(frame, freq, marker='o')
+        plt.xlabel("Experiments")
+        plt.ylabel("Frequency")
+        plt.savefig(figname)
+    return pos
+
+# experiment(2000, 0.5, True, "3.png")
+# exit()
+num = []
+for i in range(100):
+    num.append(experiment(2000, 0.5, False, ""))
+plt.bar(range(0, 100), num)
+plt.title("Histogram of 100 experiments")
+plt.xlabel("Experiments")
+plt.ylabel("Frequency")
+print(np.mean(num))
+plt.savefig("4.png")
+```
