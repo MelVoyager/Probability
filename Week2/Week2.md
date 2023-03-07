@@ -253,7 +253,7 @@ $P_甲(B)+P_乙(A)=0.6<1$，这说明甲乙都自信自身能够赢，可以通�
 ![直方图2](4.png)
 
 代码：
-```
+```python
 import numpy as np
 import matplotlib.pyplot as plt
 
