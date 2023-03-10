@@ -67,16 +67,16 @@ $$
 可得$P(\omega_1)=P(\omega_2)=P(\omega_3)=\frac{1}{3}$
 $X,Y$均满足以下分布：
 |X/Y|1|2|3|
-|-|-|-|-|
+|:-:|:-:|:-:|:-:|
 |$P$|$\frac{1}{3}$|$\frac{1}{3}$|$\frac{1}{3}$|
 
 ###### (2)
 |$X+Y$|3|4|5|
-|-|-|-|-|
+|:-:|:-:|:-:|:-:|
 |$P$|$\frac{1}{3}$|$\frac{1}{3}$|$\frac{1}{3}$|
 
 |$Y-X$|-2|1|
-|-|-|-|
+|:-:|:-:|:-:|
 |$P$|$\frac{1}{3}$|$\frac{2}{3}$|
 
 #### 4、
@@ -95,13 +95,13 @@ $$
 #### 5、
 ###### (1)
 |X|1|2|3|$\cdots$|$a+1$|
-|-|-|-|-|-|-|
+|:-:|:-:|:-:|:-:|:-:|:-:|
 |$P$|$\frac{b}{a+b}$|$\frac{a}{a+b}\times\frac{b}{a+b-1}$|$\frac{a}{a+b}\times\frac{a-1}{a+b-1}\times\frac{b}{a+b-2}$|$\cdots$|$\frac{a!b!}{(a+b)!}$
 
 ###### (2)
 记$p=\frac{b}{a+b}$
 |X|1|2|3|$\cdots$|n|$\cdots$|
-|-|-|-|-|-|-|-|
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 |$P$|$p$|$p(1-p)$|$p(1-p)^2$|$\cdots$|$p(1-p)^{n-1}$|$\cdots$|
 $$
 \begin{aligned}
@@ -121,12 +121,12 @@ $$
 存在
 X的分布：
 |$X$|0|1|2|3|$\cdots$|98|$10^8$|
-|-|-|-|-|-|-|-|-|
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 |$P$|$\frac{1}{100}$|$\frac{1}{100}$|$\frac{1}{100}$|$\frac{1}{100}$|$\cdots$|$\frac{1}{100}$|$\frac{1}{100}$|
 
 Y的分布：
 |$Y$|1|2|3|4|$\cdots$|99|100|
-|-|-|-|-|-|-|-|-|
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 |$P$|$\frac{1}{100}$|$\frac{1}{100}$|$\frac{1}{100}$|$\frac{1}{100}$|$\cdots$|$\frac{1}{100}$|$\frac{1}{100}$|
 
 $E(X)=\frac{1}{100}(0+1+\cdots+98)+10^6=48.51+10^6\approx10^6$
@@ -216,3 +216,97 @@ Var(X)&=E(X^2)-E^2(X)\\
 $$
 
 #### 10、
+###### (1)
+$$
+P(X=m)=\frac{C_M^mC_{N-M}^{n-m}}{C_N^n}
+$$
+
+###### (2)
+$$
+\begin{aligned}
+E(X)&=\sum_m mP(X=m)\\
+&=\sum_m \frac{mC_M^mC_{N-M}^{n-m}}{C_N^n}\\
+&=\sum_m \frac{MC_{M-1}^{m-1}C_{N-M}^{n-m}}{C_N^n}\\
+&=\frac{M}{C_N^n}\sum_m C_{M-1}^{m-1}C_{N-M}^{n-m}\\
+&=\frac{M}{C_N^n} C_{N-1}^{n-1}\\
+&=M\frac{n!(N-n)!}{N!}\frac{(N-1)!}{(n-1)!(N-n)!}\\
+&=\frac{nM}{N}
+\end{aligned}
+$$
+如果认为捕上来的鱼$m$条为期望数
+$$
+m=\frac{nM}{N}\\
+N=\frac{nM}{m}
+$$
+
+###### (3)
+$$
+\begin{aligned}
+记a_N&=\frac{C_M^mC_{N-M}^{n-m}}{C_N^n}\\
+\frac{a_{N+1}}{a_N}&=\frac{C_{N-M+1}^{n-m}C_N^n}{C_{N+1}^nC_{N-M}^{n-m}}\\
+&=\frac{(N-M+1)!}{(n-m)!(N-M+1-(n-m))!}\frac{(n-m)!(N-M-(n-m))!}{(N-M)!}\frac{n!(N+1-n)!\times N!}{(N+1)!\times n!(N-n)!}\\
+&=\frac{N-M+1}{N-M+1-(n-m)}\frac{N+1-n}{N+1}\\
+令\frac{N-M+1}{N-M+1-(n-m)}\frac{N+1-n}{N+1}&>1\\
+\frac{N+1-n}{N+1}&>\frac{ N-M+1-(n-m)}{N-M+1}\\
+1-\frac{n}{N+1}&>1-\frac{n-m}{N-M+1}\\
+\frac{n-m}{N-M+1}&>\frac{n}{N+1}\\
+(n-m)(N+1)&>n(N-M+1)\\
+-mN-m+nM&>0\\
+N&<\frac{nM-m}{m}=\frac{nM}{m}-1
+\end{aligned}
+$$
+记$L=\lfloor\frac{nM}{m}\rfloor$，则有$max(a_N)=a_L$，这与(2)中的估计值相同
+
+###### (4)
+当$n$足够大时，该随机变量近似服从二项分布$B(n,p),p=\frac{M}{N}$
+这种极端情况下，$B(n,p)$的期望与之前推算的期望一致
+
+#### 11、
+###### (1)
+![图一](1.png)
+由图可知，$x=15$有最大概率
+
+###### (2)
+通过计算得到$E(X)=15$，这与最大概率对应的$x$的大小相等
+
+###### (3)
+通过计算得到$Var(X)=6$
+
+###### (6)
+介于$u\pm 2\sigma$的概率约为$93.6\%$
+
+```python
+from scipy.stats import binom
+import matplotlib.pyplot as plt
+import numpy as np
+
+n = 25  # n为试验次数
+p = 0.6  # p为成功的概率
+ps = []
+u = 0
+var = 0
+
+for i in range(0, 26):
+    ps.append(binom.pmf(i, n, p))
+    u += ps[i] * i
+plt.bar(range(0, 26), ps)
+plt.title("Probability distribution of targets in 25 samples")
+plt.xlabel("k targets in 25 samples")
+plt.ylabel("Probability")
+plt.savefig("1.png")
+
+for i in range(0, 26):
+    var += ps[i] * ((i - u) ** 2)
+sd = np.sqrt(var)
+sum_p = 0
+
+# print(u - 2 * sd, u + 2 * sd)
+for i in range(0, 26):
+    if(u - 2 * sd <= i and i <= u + 2 * sd):
+        # print(i)
+        sum_p += ps[i]
+
+print(f"E(X)={u}")
+print(f"Var(X)={var}")
+print(f"Probability in (u-2{chr(963)}, u+2{chr(963)})={sum_p}")
+```
